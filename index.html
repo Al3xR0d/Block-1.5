@@ -63,6 +63,34 @@
                 </div>
                 </div>
             </aside>
+            <aside class = "modal modal--closed">
+                <div class = "overlay">
+                    <div class = "modal-window">
+                        <button class = "modal-close-button close-button"></button>
+                        <form class = "modal__form">
+                        <span class = "modal__head-text">Заявка на консультацию</span>
+                        <div class = "inputs modal__inputs">
+                            <label class = "modal__head-label">Ваше имя
+                            <input class = "modal__input" placeholder = "Введите ваше имя" type = "text" name = "username" value = ""/>
+                            </label>
+                            <label class = "modal__head-label">Номер телефона
+                                <input class = "modal__input" placeholder = "+ 7 (999) 999 99 99" type = "text" name = "telephone" value = ""/>
+                            </label>
+                            <button class = "modal__button" type = "submit">Отправить</button>
+                            <span class = "modal__text">Нажимая на кнопку «Отправить заявку», я даю согласие на обработку персональных данных и соглашаюсь c политикой конфиденциальности</span>
+                            <div class = "modal__button-with-book">
+                                <button class = "order__button-6">
+                                    <img class = "order__button-6logo" src = "pictures/magazine-mockup 1.png" alt = "Инструкция монитоиинга и аналитики"/>
+                                    <div class = "locker">
+                                        <img class = "locker__image" src = "pictures/3671803_closed_lock_icon 1.png" alt = "Замок"/>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                </div>
+            </aside>
         <main id = "main" class = "content">
             <div class = "advertisement">
                 <h1 class = "advertisement__text">Разработка интернет-магазинов <span class = "advertisement__text--marked">на 1C-Битрикс</span></h1>
@@ -362,33 +390,6 @@
         <span class = "footer__copyright">© 2018–2021 | Millenium - создание интернет-магазинов на 1С Битрикс</span>
         <span class = "footer__privacy-policy">Политика конфиденциальности</span>
     </footer>
-    <div class = "modal modal--closed">
-        <div class = "modal-window">
-        <button class = "modal-close-button close-button"></button>
-        <form class = "modal__form">
-        <span class = "modal__head-text">Заявка на консультацию</span>
-        <div class = "inputs modal__inputs">
-            <label class = "modal__head-label">Ваше имя
-            <input class = "modal__input" placeholder = "Введите ваше имя" type = "text" name = "username" value = ""/>
-            </label>
-            <label class = "modal__head-label">Номер телефона
-                <input class = "modal__input" placeholder = "+ 7 (999) 999 99 99" type = "text" name = "telephone" value = ""/>
-            </label>
-            <button class = "modal__button" type = "submit">Отправить</button>
-            <span class = "modal__text">Нажимая на кнопку «Отправить заявку», я даю согласие на обработку персональных данных и соглашаюсь c политикой конфиденциальности</span>
-            <div class = "modal__button-with-book">
-                <button class = "order__button-6">
-                    <img class = "order__button-6__logo" src = "pictures/magazine-mockup 1.png" alt = "Инструкция монитоиинга и аналитики"/>
-                    <div class = "locker">
-                        <img class = "locker__image" src = "pictures/3671803_closed_lock_icon 1.png" alt = "Замок"/>
-                    </div>
-                </button>
-            </div>
-        </div>
-        </form>
-        </div>
-        <div class = "overlay"></div>
-    </div>
         <script src = "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
         <script src = "script.js"></script>
 </body>

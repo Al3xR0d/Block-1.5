@@ -301,6 +301,8 @@ width: 275px;
 height: 60px;
 color: #fff;
 cursor: pointer;
+font-size: 12px;
+font-weight: 800;
 }
 
 .order__text {
@@ -736,6 +738,11 @@ max-height: 510px;
 height: 450px;
 }
 
+.photo {
+display: flex;
+justify-content: center;
+}
+
 .photo__ofice-at-work {
 height: 251px; 
 width: 100%;
@@ -797,13 +804,12 @@ margin-bottom: 10px;
 display: flex;
 flex-direction: column;
 gap: 30px;
-padding:15px;
+padding: 15px;
 }
 
 .call-me-back {
 background: #6B5AF9;
 border-radius: 20px;
-width: 311px;
 max-height: 486px;
 display: flex;
 flex-direction: column;
@@ -811,6 +817,10 @@ gap: 20px;
 align-items: center;
 margin: 0 auto;
 position: relative;
+max-width: 400px;
+margin-left: 10px;
+margin-right: 10px;
+align-self: center;
 }
 
 .call-me {
@@ -899,7 +909,7 @@ input[type = text] {
 border: none;
 color: #fff;
 border-bottom: 1px solid rgba(255, 255, 255, 0.40);
-background:#6B5AF9;
+background: #6B5AF9;
 width: 250px;
 padding-bottom: 5px;
 outline: none;
@@ -907,6 +917,10 @@ outline: none;
 
 .input-2 {
 margin-bottom: 50px;
+}
+
+.call-me-back__input::-webkit-input-placeholder {
+color: rgba(255, 255, 255, 0.40);
 }
 
 .custom-checkbox__text {
@@ -956,6 +970,7 @@ box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 .millenium__picture-5 {
 max-width: 221px;
 height: 113px;
+align-self: flex-start;
 }
 
 .footer {
@@ -1112,8 +1127,10 @@ width: 340px;
 height: 514px;
 border-radius: 10px;
 background: #FFF;
-position: relative;
 z-index: 5;
+position: absolute;
+inset: 0;
+margin: auto;
 }
 
 .modal__head-label{
@@ -1184,7 +1201,7 @@ background: #6B5AF9;
 color: #fff;
 }
 
-.modal .overlay {
+.modal > .overlay {
 position: absolute;
 top: 0;
 left: 0;
@@ -1192,6 +1209,11 @@ width: 100%;
 height: 100%;
 background: rgba(0, 0, 0, 0.20);
 z-index: 0;
+overflow: auto;
+}
+
+.modal__input::-webkit-input-placeholder {
+color: #9895B4;;
 }
 
 .modal--input {
@@ -1333,13 +1355,13 @@ gap: 0;
 
 @media (min-width: 768px) {
 
-.call-me-back{
-width: 472px;
+.call-me-back {
+max-width: 472px;
 }
 
-.call-me-back__form{
+.call-me-back__form {
 padding: 40px;
-width:472px;
+width: 472px;
 }
   
 .call-me {
@@ -1406,11 +1428,6 @@ justify-content: center;
 flex-wrap: wrap;
 padding: 55px 0 0 0;
 }
-
-/* .swiper > .swiper-wrapper-2 > .swiper-slide .container2 {
-border: 10px solid blue;
-max-width: 320px !important;
-} */
 
 .swiper > .swiper-wrapper-2  {
 justify-content: space-between;
@@ -1558,8 +1575,8 @@ height: 792px;
 }
 
 .photo__ofice-at-work {
-height: 459px;
-width:100%;
+height: 590px;
+max-width: 1440px;
 }
 
 .millenium {
@@ -1609,6 +1626,10 @@ height: 171px;
 .millenium-company {
 margin: 0 auto;
 margin-bottom: 250px;
+}
+
+.order__button-4 {
+font-size: 14px;
 }
 
 .footer {
@@ -1666,6 +1687,7 @@ text-align: left;
 
 .footer__worktime {
 justify-content: flex-start; 
+margin-bottom: auto;
 }
 
 .order-area .footer-order-area {
@@ -1676,6 +1698,7 @@ margin-top: 0;
 width: 341px;
 margin-top: auto;
 margin-bottom: 20px;
+font-size: 14px;
 }
 }
 
@@ -1888,6 +1911,7 @@ font-size: 14px;
 
 .crad__img {
 width: 521px;
+max-height: 365px;
 }
 
 .card:nth-child(odd) {
@@ -1965,6 +1989,8 @@ width: 1400px;
 
 .call-me-back {
 margin-top: 65px;
+margin-left: auto;
+margin-right: auto;
 }
 
 .millenium__picture-4 {
