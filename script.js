@@ -103,7 +103,6 @@ const isOpenSidebars = () => {
 
 const toggleOverflowSidebars = () => {
   let sidebarsOpen = isOpenSidebars()
-  console.log(isOpenSidebars())
  const someIsOpen = sidebarsOpen.some((item) => item)
  return someIsOpen ?  bodyScroll.style.overflow = "hidden" : bodyScroll.style.overflow = "auto";
 }
@@ -111,21 +110,19 @@ const toggleOverflowSidebars = () => {
 
 closeButton.addEventListener("click", function(){
     modalWrapper.classList.add("modal--closed");
-    console.log(isOpenSidebars())
     toggleOverflowSidebars()
 })
 
 callButton.addEventListener("click", function(){
   modalWrapper.classList.remove("modal--closed")
-  console.log(isOpenSidebars())
   toggleOverflowSidebars()
+  modalScrollContent.style.overflow = "auto";
 
 })
 
 modalWrapper.addEventListener("click", function(e){
   if(e.target === modalOverlay){
     modalWrapper.classList.toggle("modal--closed");
-    console.log(isOpenSidebars())
     toggleOverflowSidebars()
   }
 
@@ -136,6 +133,7 @@ const toggleButtonStyle = () => {
 if(isBurgerOpen){
   picture.style.background = "#43CD93";
   picture.style.width = "41px";
+  burgerMenuWrapper.style.overflow = "auto"
 } else{
   picture.style.background = "#6B5AF9";
   picture.style.width = "15px";
@@ -147,7 +145,6 @@ if(isBurgerOpen){
 burgerButton.addEventListener("click", function(){
     burgerWrapper.classList.toggle("sidebar--open");
     toggleButtonStyle();
-    console.log(isOpenSidebars())
     toggleOverflowSidebars()
   
   })
@@ -157,7 +154,6 @@ burgerButton.addEventListener("click", function(){
     if(e.target === burgerCloseButton){
       burgerWrapper.classList.remove("sidebar--open");
       toggleButtonStyle()
-      console.log(isOpenSidebars())
       toggleOverflowSidebars()
     }
   
@@ -168,7 +164,6 @@ burgerButton.addEventListener("click", function(){
     if(e.target === burgerWrapper){
       burgerWrapper.classList.remove("sidebar--open");
       toggleButtonStyle()
-      console.log(isOpenSidebars())
       toggleOverflowSidebars()
    
     }
