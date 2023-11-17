@@ -3,7 +3,7 @@ function sliderInit() {
   if (!slider) {
     slider = new Swiper('.swiper1', {
       direction: 'horizontal',
-      slidesPerView: 'auto',
+      slidesPerView: "auto",
       pagination: {
           el: '.swiper-pagination',
           clickable: true,
@@ -56,6 +56,7 @@ if (window.matchMedia("(max-width: 768px)").matches) {
 window.addEventListener("resize", function() {
     if (window.matchMedia("(min-width: 1400px)").matches) {
       slider2 && secondSliderDestroy();
+      // secondSliderDestroy()
     }
     if (window.matchMedia("(min-width: 768px) and (max-width: 1399px)").matches) {
      slider && sliderDestroy();
@@ -94,84 +95,100 @@ const orderButtonList = document.querySelectorAll(".order__button")
 const contactSection = document.querySelector(".millenium-company")
 
 
-const isClosedModal = () => {
-  const isClosed = modalWrapper.classList.contains("modal--closed")
-  if(isClosed){
-    bodyScroll.style.overflow = "auto";
-    modalOverlay.style = "auto";
-  } else{
-    bodyScroll.style.overflow = "hidden";
-    modalOverlay.style = "auto";
-  }
+const isOpenSidebars = () => {
+  const isBurgerOpen = burgerWrapper.classList.contains("sidebar--open");
+  const isModalOpen = !modalWrapper.classList.contains("modal--closed")
+  return [isBurgerOpen, isModalOpen]
 }
+
+const toggleOverflowSidebars = () => {
+  let sidebarsOpen = isOpenSidebars()
+  console.log(isOpenSidebars())
+ const someIsOpen = sidebarsOpen.some((item) => item)
+ return someIsOpen ?  bodyScroll.style.overflow = "hidden" : bodyScroll.style.overflow = "auto";
+}
+
+
 closeButton.addEventListener("click", function(){
     modalWrapper.classList.add("modal--closed");
-    isClosedModal();
+    console.log(isOpenSidebars())
+    toggleOverflowSidebars()
 })
 
 callButton.addEventListener("click", function(){
-  modalWrapper.classList.remove("modal--closed");
-  isClosedModal();
+  modalWrapper.classList.remove("modal--closed")
+  console.log(isOpenSidebars())
+  toggleOverflowSidebars()
 
 })
 
 modalWrapper.addEventListener("click", function(e){
   if(e.target === modalOverlay){
     modalWrapper.classList.toggle("modal--closed");
-    isClosedModal();
+    console.log(isOpenSidebars())
+    toggleOverflowSidebars()
   }
 
 })
 
 const toggleButtonStyle = () => {
-  const isOpen = burgerWrapper.classList.contains("sidebar--open");
-if(isOpen){
+  const isBurgerOpen = burgerWrapper.classList.contains("sidebar--open");
+if(isBurgerOpen){
   picture.style.background = "#43CD93";
   picture.style.width = "41px";
-  bodyScroll.style.overflow = "hidden"
-  burgerMenuWrapper.style.overflow = "auto"
 } else{
   picture.style.background = "#6B5AF9";
   picture.style.width = "15px";
-  bodyScroll.style.overflow = "auto";
 }
+
 }
+
 
 burgerButton.addEventListener("click", function(){
-  burgerWrapper.classList.toggle("sidebar--open");
-  toggleButtonStyle();
-})
-
-burgerCloseButton.addEventListener("click", function(e){
-  if(e.target === burgerCloseButton){
-    burgerWrapper.classList.remove("sidebar--open");
-    toggleButtonStyle()
-  }
-
-})
-
-burgerWrapper.addEventListener("click", function(e){
-  if(e.target === burgerWrapper){
-    burgerWrapper.classList.remove("sidebar--open");
-    toggleButtonStyle()
-  }
-})
-
-
-document.body.addEventListener('click', e => {
-  if (e.target.classList.contains('sidebar__menu--element')) {
-    burgerWrapper.classList.remove("sidebar--open");
-    toggleButtonStyle()
-  }
-})
-
-document.body.addEventListener('click', e => {
-  if (e.target.classList.contains('order__button')) {
-    contactSection.scrollIntoView()
-  }
-})
-
-const setModalScroll = () => {
+    burgerWrapper.classList.toggle("sidebar--open");
+    toggleButtonStyle();
+    console.log(isOpenSidebars())
+    toggleOverflowSidebars()
+  
+  })
+  
+  burgerCloseButton.addEventListener("click", function(e){
+   
+    if(e.target === burgerCloseButton){
+      burgerWrapper.classList.remove("sidebar--open");
+      toggleButtonStyle()
+      console.log(isOpenSidebars())
+      toggleOverflowSidebars()
+    }
+  
+  })
+  
+  burgerWrapper.addEventListener("click", function(e){
+  
+    if(e.target === burgerWrapper){
+      burgerWrapper.classList.remove("sidebar--open");
+      toggleButtonStyle()
+      console.log(isOpenSidebars())
+      toggleOverflowSidebars()
+   
+    }
+  })
+  
+  
+  document.body.addEventListener('click', e => {
+    if (e.target.classList.contains('sidebar__menu--element')) {
+      burgerWrapper.classList.remove("sidebar--open");
+      toggleButtonStyle()
+    }
+  })
+  
+  document.body.addEventListener('click', e => {
+    if (e.target.classList.contains('order__button')) {
+      contactSection.scrollIntoView()
+    }
+  })
+  
+  const setModalScroll = () => {
     if (window.innerHeight > 514) {
       modalScrollContent.style.position = "absolute";
        } else{
@@ -185,4 +202,4 @@ const setModalScroll = () => {
   
   window.addEventListener("DOMContentLoaded", function() {
   setModalScroll();
-  });  
+  });
